@@ -1,4 +1,4 @@
-package model;
+package main.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,7 +11,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.stream.events.Comment;
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;

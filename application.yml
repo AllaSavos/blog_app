@@ -1,6 +1,12 @@
 spring.datasource.url: jdbc:mysql://localhost:3306/blogapp?useSSL=false&serverTimezone=UTC
 spring.datasource.username: root
 spring.datasource.password: testTest00
-spring.jpa.hibernate.ddl-auto: none
-someParameter:
-  value: "Action is the foundational key to all success (Pablo Picasso)"
+spring.jpa.hibernate.ddl-auto: create
+spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQLDialect
+
+blog.title: DevPub
+blog.subtitle: Рассказы разработчиков
+blog.phone: +7 903 666-44-55
+blog.email: mail@mail.ru
+blog.copyright: Дмитрий Сергеев
+blog.copyrightFrom: 2005

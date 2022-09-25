@@ -1,9 +1,7 @@
-package model;
+package main.model;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -23,6 +21,10 @@ public class Vote {
         this(user, post);
         this.time = time;
     }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @NotNull
     @ManyToOne(cascade = CascadeType.MERGE, optional = false)
