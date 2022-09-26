@@ -12,15 +12,6 @@ import java.time.Instant;
 @Data
 @NoArgsConstructor(force = true)
 public class Vote {
-    public Vote(@NotNull User user, @NotNull Post post) {
-        this.user = user;
-        this.post = post;
-    }
-
-    public Vote(@NotNull User user, @NotNull Post post, @NotNull Instant time) {
-        this(user, post);
-        this.time = time;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

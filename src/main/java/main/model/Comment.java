@@ -1,43 +1,38 @@
 package main.model;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "comments")
-@Data
-@NoArgsConstructor(force = true) @EqualsAndHashCode(of = {"text", "time"})
-@ToString(callSuper = true, of = {"text", "user", "time"})
+@Setter
+@Getter
+@Table(name = "post_comments")
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @ManyToOne
     @JoinColumn(name="parent_id", referencedColumnName = "id")
-    private Comment parentComment;
+    private Integer parentId;
 
     @NotNull
-    @OneToMany(mappedBy = "parentComment", fetch = FetchType.LAZY, orphanRemoval = true)
-    private final Set<Comment> childComments = new HashSet<>();
+    @OneToMany(mappedBy = "parentId", fetch = FetchType.LAZY)
+    private final List<Comment> childComments = new ArrayList<>();
 
     @NotNull
-    @ManyToOne(cascade = CascadeType.MERGE, optional = false)
-    @JoinColumn(name="user_id", referencedColumnName = "id", nullable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id", referencedColumnName = "id", nullable = false)
     private User user;
 
     @NotNull
-    @ManyToOne(cascade = CascadeType.MERGE, optional = false)
-    @JoinColumn(name="post_id", referencedColumnName = "id", nullable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="post_id", referencedColumnName = "id", nullable = false)
     private Post post;
 
     @NotNull

@@ -4,9 +4,11 @@ import main.api.response.InitResponse;
 import main.api.response.SettingsResponse;
 import main.service.SettingsService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api")
 public class ApiGeneralController {
 
     private final InitResponse initResponse;
@@ -17,12 +19,12 @@ public class ApiGeneralController {
         this.settingsService = settingsService;
     }
 
-    @GetMapping("/api/settings")
+    @GetMapping("/settings")
     private SettingsResponse settings() {
         return settingsService.getGlobalSettings();
     }
 
-    @GetMapping("/api/init")
+    @GetMapping("/init")
     private InitResponse init() {
         return initResponse;
     }
