@@ -1,33 +1,30 @@
 package main.model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.time.Instant;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "votes")
-@Data
-@NoArgsConstructor(force = true)
 public class Vote {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotNull
-    @ManyToOne(cascade = CascadeType.MERGE, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id", referencedColumnName = "id", nullable = false)
     private User user;
 
-    @NotNull
-    @ManyToOne(cascade = CascadeType.MERGE, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="post_id", referencedColumnName = "id", nullable = false)
     private Post post;
 
-    @NotNull @Column(nullable = false)
+    @Column(nullable = false)
     private Instant time = Instant.now();
 
     @Column(nullable = false)

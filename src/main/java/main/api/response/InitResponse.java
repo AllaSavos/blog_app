@@ -12,7 +12,7 @@ public class InitResponse {
     @Value("${blog.title}")
     private String title;
     @Value("${blog.subtitle}")
-    private String subTitle;
+    private String subtitle;
     @Value("${blog.phone}")
     private String phone;
     @Value("${blog.email}")

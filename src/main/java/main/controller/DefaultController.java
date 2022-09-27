@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class DefaultController {
-   /* private final InitResponse initResponse;
+    /*private final InitResponse initResponse;
 
     public DefaultController(InitResponse initResponse) {
         this.initResponse = initResponse;
