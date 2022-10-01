@@ -3,6 +3,7 @@ spring.datasource.username: root
 spring.datasource.password: testTest00
 spring.jpa.hibernate.ddl-auto: create
 spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQLDialect
+spring.main.allow-bean-definition-overriding: true
 
 blog.title: DevPub
 blog.subtitle: Developers stories

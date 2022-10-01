@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class ApiGeneralController {
 
-    private final InitResponse initResponse;
-    private final SettingsService settingsService;
+    public InitResponse initResponse;
+    public SettingsService settingsService;
 
     public ApiGeneralController(InitResponse initResponse, SettingsService settingsService) {
         this.initResponse = initResponse;
@@ -20,12 +20,12 @@ public class ApiGeneralController {
     }
 
     @GetMapping("/settings")
-    private SettingsResponse settings() {
+    public SettingsResponse settings() {
         return settingsService.getGlobalSettings();
     }
 
     @GetMapping("/init")
-    private InitResponse init() {
+    public InitResponse init() {
         return initResponse;
     }
 }
