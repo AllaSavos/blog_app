@@ -5,6 +5,7 @@ spring.jpa.hibernate.ddl-auto: create
 spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQLDialect
 spring.main.allow-bean-definition-overriding: true
 
+
 blog.title: DevPub
 blog.subtitle: Developers stories
 blog.phone: +7 903 666-44-55
