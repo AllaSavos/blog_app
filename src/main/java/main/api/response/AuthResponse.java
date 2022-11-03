@@ -4,13 +4,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 public class AuthResponse {
     @JsonProperty("result")
     private boolean result;
     @JsonProperty("user")
-    private UserResponse userResponse;
+    private List<UserResponse> userResponse;
 }
 /*  {   "result": true,
         "user": {

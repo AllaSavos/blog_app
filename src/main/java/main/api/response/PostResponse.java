@@ -6,27 +6,17 @@ import lombok.Setter;
 import main.model.Post;
 import main.model.User;
 
+import java.util.List;
+
 @Setter
 @Getter
 public class PostResponse {
     @JsonProperty("count")
     private int count;
     @JsonProperty("posts")
-    private Post posts;
-    @JsonProperty("user")
-    private User user;
-    @JsonProperty("title")
-    private String title;
-    @JsonProperty("announce")
-    private String announce;
-    @JsonProperty("likeCount")
-    private int likeCount;
-    @JsonProperty("dislikeCount")
-    private int dislikeCount;
-    @JsonProperty("commentCount")
-    private int commentCount;
-    @JsonProperty("viewCount")
-    private int viewCount;
+    private List<PostResponseAdditional> posts;
+
+
 
 }
 /*{

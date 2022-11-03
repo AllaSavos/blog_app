@@ -7,9 +7,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserResponse {
-    @JsonProperty("id")
+
     private int id;
-    @JsonProperty("name")
+
     private String name;
     @JsonProperty("photo")
     private String photo;

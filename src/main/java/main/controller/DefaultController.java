@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class DefaultController {
 
-    @Autowired
-    private PostRepository postRepository;
 
     private final InitResponse initResponse;
 

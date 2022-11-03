@@ -1,8 +1,6 @@
 package main.controller;
 
-import main.api.response.AuthResponse;
-import main.api.response.InitResponse;
-import main.api.response.SettingsResponse;
+import main.api.response.*;
 import main.service.AuthService;
 import main.service.PostService;
 import main.service.SettingsService;
@@ -47,12 +45,12 @@ public class ApiGeneralController {
     }
 
     @GetMapping("/post")
-    public PostService posts() {
-        return postService;
+    public PostResponse posts() {
+        return postService.getPostResponse();
     }
 
     @GetMapping("/tag")
-    public TagService tags() {
-        return tagService;
+    public TagResponse tags() {
+        return tagService.getTagResponse();
     }
 }
