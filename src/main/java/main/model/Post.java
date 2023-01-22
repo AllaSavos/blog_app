@@ -2,6 +2,7 @@ package main.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.domain.Page;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -65,6 +66,10 @@ public class Post {
     @NotNull
     @OneToMany(mappedBy = "post", fetch = FetchType.LAZY, orphanRemoval = true)
     private final List<Comment> comments = new ArrayList<>();
+
+    public Post() { //Page<Post> posts
+
+    }
 
     public void addTag(@NotNull Tag tag) {
         tags.add(tag);

@@ -1,5 +1,6 @@
 package main.api.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +13,8 @@ public class AuthResponse {
     @JsonProperty("result")
     private boolean result;
     @JsonProperty("user")
-    private List<UserResponse> userResponse;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private UserResponse userResponse;
 }
 /*  {   "result": true,
         "user": {

@@ -2,8 +2,16 @@ package main.model.repositories;
 
 import main.model.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, Integer> {
+       /* @Query(value = "SELECT * FROM posts p WHERE p.is_active = 1 AND posts.moderation_status = 'ACCEPTED' " +
+        "AND time<=NOW() ORDER BY posts.time DESC LIMIT :limit OFFSET :offset", nativeQuery = true)
+        List<Post> getVisiblePosts(@Param("offset") int offset, @Param("limit") int limit, String mode);*/
+
 }

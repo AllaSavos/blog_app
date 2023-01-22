@@ -1,12 +1,13 @@
 package main.controller;
 
 import main.api.response.*;
-import main.service.AuthService;
-import main.service.PostService;
-import main.service.SettingsService;
-import main.service.TagService;
+import main.service.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,17 +17,18 @@ public class ApiGeneralController {
     public InitResponse initResponse;
     public SettingsService settingsService;
     public AuthService authService;
-    public PostService postService;
+
     public TagService tagService;
 
+    public CalendarService calendarService;
+
     public ApiGeneralController(InitResponse initResponse, SettingsService settingsService,
-                                AuthService authService, PostService postService,
-                                TagService tagService) {
+                                AuthService authService, TagService tagService, CalendarService calendarService) {
         this.initResponse = initResponse;
         this.settingsService = settingsService;
         this.authService = authService;
-        this.postService = postService;
         this.tagService = tagService;
+        this.calendarService = calendarService;
     }
 
     @GetMapping("/settings")
@@ -44,13 +46,14 @@ public class ApiGeneralController {
         return authService.getAuthResponse();
     }
 
-    @GetMapping("/post")
-    public PostResponse posts() {
-        return postService.getPostResponse();
-    }
 
     @GetMapping("/tag")
     public TagResponse tags() {
         return tagService.getTagResponse();
+    }
+
+    @GetMapping("/calendar")
+    public CalendarResponse calendar() {
+        return calendarService.getCalendarResponse();
     }
 }

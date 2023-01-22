@@ -21,6 +21,13 @@ public class UserResponse {
     private int moderationCount;
     @JsonProperty("settings")
     private boolean settings;
+
+    public UserResponse(int id, String name) {
+    }
+
+    public UserResponse() {
+
+    }
 }
 /*  {   "result": true,
         "user": {
